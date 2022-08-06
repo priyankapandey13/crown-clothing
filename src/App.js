@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import Categoryitem from './components/category-item/category-item.component';
+import './categories.style.scss';
 
 function App() {
+  const Category = [
+    {
+      id:1,
+      title: 'Hats',
+      imageurl: 'https://i.pinimg.com/474x/75/49/24/754924dc2ca826889efafd9a84c1cded.jpg',
+    },
+    {
+      id:2,
+      title: 'Jackets',
+      imageurl:'https://i.pinimg.com/736x/ce/70/68/ce70681e59056bd6dcb81c5d64c5d726.jpg',
+    },
+    {
+      id:3,
+      title: 'Sneakers',
+      imageurl:'https://5.imimg.com/data5/SELLER/Default/2020/8/AJ/LC/DM/64760880/skechers-goga-max-grey-casual-shoes-500x500.jpg',
+    },
+    {
+      id:4,
+      title: 'Womens',
+      imageurl:'https://www.toptrendsguide.com/wp-content/uploads/2020/02/Online-Shopping-Websites.jpg',
+    },
+    {
+      id:5,
+      title: 'Mens',
+      imageurl:'https://imgmedia.lbb.in/media/2020/05/5eb24d8c97526b6f37acdda8_1588743564516.jpg',
+    }
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='categories-container'>
+    {Category.map((category) => <Categoryitem key={category.id} category={category}></Categoryitem>)}
     </div>
   );
 }

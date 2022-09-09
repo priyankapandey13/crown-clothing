@@ -8,13 +8,12 @@ const Navigation =()=>{
     <Fragment>
     <div className="navigation">
       <Link className="logo-container" to='/'>
-      {/* <div>Logo</div> */}
       <CrownLogo className="" />
       </Link>
       <div className="nav-links-container">
         {/* <Link className="nav-link" to='/'>Home</Link> */}
         <Link className="nav-link" to='/shop'>Shop</Link>
-        <Link className="nav-link" to='/signin'>Signin</Link>
+        <Link className="nav-link" to='/authentication'>Authentication</Link>
         <Link className="nav-link" to='/shop'>Shop</Link>
       </div>
       </div>

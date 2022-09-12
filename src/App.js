@@ -1,4 +1,7 @@
-import Categories from "./components/categories.component/categories.component.jsx";
+import { Routes , Route, Outlet } from "react-router-dom";
+import Home from "./Routes/home/home.components.jsx";
+import Navigation from "./Routes/navigation/navigation.component.jsx";
+import Authentication from "./Routes/authentication/authentication.components.jsx";
 
 function App() {
   const Category = [
@@ -30,7 +33,13 @@ function App() {
   ]
 
   return (
-    <Categories Category={Category}></Categories>
+    <Routes>
+      <Route path="/" element={<Navigation/>} >
+      <Route index element={<Home/>} ></Route>
+      <Route path="/shop" element={<Shop/>} />
+      <Route path="/authentication" element={<Authentication/>} />
+      </Route>
+    </Routes>
   );
 }
 

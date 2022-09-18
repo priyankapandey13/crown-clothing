@@ -18,8 +18,6 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  // console.log(formFields);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormFields({ ...formFields, [name]: value });
@@ -44,15 +42,19 @@ const SignUpForm = () => {
         email,
         password
       );
-      console.log(user);
+      // console.log(user);
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("User already exists with this email id");
+      }
+      if (error.code === "EMAIL_EXISTS") {
+        alert("This user has been registered already");
       } else {
         console.log("User creation encountered an error", error);
       }
+      resetFormFields();
     }
   };
   return (
@@ -67,38 +69,38 @@ const SignUpForm = () => {
       >
         <FormInput
           label="DisplayName"
-            type= "text"
-            required
-            onChange= {handleChange}
-            name= "displayName"
-            value= {displayName}
+          type="text"
+          required
+          onChange={handleChange}
+          name="displayName"
+          value={displayName}
         />
 
         <FormInput
           label="Email"
-            type= "email"
-            required
-            onChange= {handleChange}
-            name= "email"
-            value= {email}
+          type="email"
+          required
+          onChange={handleChange}
+          name="email"
+          value={email}
         />
 
         <FormInput
           label="Password"
-            type={password}
-            required
-            onChange= {handleChange}
-            name= "password"
-            value= {password}
+          type={password}
+          required
+          onChange={handleChange}
+          name="password"
+          value={password}
         />
 
         <FormInput
           label="Confirm Password"
-            type= "password"
-            required
-            onChange= {handleChange}
-            name= "confirmPassword"
-            value= {confirmPassword}
+          type="password"
+          required
+          onChange={handleChange}
+          name="confirmPassword"
+          value={confirmPassword}
         />
 
         <Button type="submit">Submit</Button>
